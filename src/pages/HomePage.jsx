@@ -1,5 +1,5 @@
 import React from 'react';
-import Sidebar from '../components/home/Sidebar';
+import Sidebar from '../components/Home/Sidebar';
 import TopBar from '../components/home/TopBar';
 import EventCarousel from '../components/home/EventCarousel';
 import InfoCard from '../components/home/InfoCard';
