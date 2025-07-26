@@ -22,7 +22,7 @@ const RegisterHero = () => {
       imageAlt: "Person with camera"
     },
     {
-      background: 'linear-gradient(135deg, #FF6B35 0%, #F7931E 100%)',
+      background: 'linear-gradient(135deg, #3153FF 0%, #768DFF 100%)',
       heroText: (
         <>
           "Ayo tampilkan karya mu
@@ -30,7 +30,7 @@ const RegisterHero = () => {
           bersama kami"
         </>
       ),
-      image: "/src/assets/images/register2.png",
+      image: "/src/assets/images/siswi.png",
       imageAlt: "Person with laptop"
     },
     {
@@ -44,12 +44,11 @@ const RegisterHero = () => {
           kreatifmu bersama"
         </>
       ),
-      image: "/src/assets/images/register3.png",
+      image: "/src/assets/images/siswa.png",
       imageAlt: "Creative person"
     }
   ];
 
-  // Auto-swipe setiap 5 detik
   useEffect(() => {
     const interval = setInterval(() => {
       nextSlide();
@@ -80,7 +79,7 @@ const RegisterHero = () => {
 
   return (
     <div 
-      className={`p-8 shadow-lg max-w-xxl w-full h-full flex flex-col justify-between relative rounded-lg overflow-hidden transition-all duration-700 ease-in-out transform ${
+      className={`p-4 sm:p-6 lg:p-8 shadow-lg w-full h-full min-h-[400px] sm:min-h-[500px] lg:min-h-auto flex flex-col justify-between relative rounded-lg overflow-hidden transition-all duration-700 ease-in-out transform ${
         isTransitioning ? 'scale-95 opacity-80' : 'scale-100 opacity-100'
       }`}
       style={{ 
@@ -92,30 +91,30 @@ const RegisterHero = () => {
       <div className={`z-10 transition-all duration-700 ease-in-out transform ${
         isTransitioning ? 'translate-x-8 opacity-0' : 'translate-x-0 opacity-100'
       }`}>
-        <h1 className="text-3xl font-bold text-white mb-6 leading-tight">
+        <h1 className="text-lg sm:text-xl lg:text-2xl xl:text-3xl font-bold text-white mb-4 sm:mb-6 leading-tight">
           {slides[currentSlide].heroText}
         </h1>
       </div>
 
-      {/* Image - Positioned to the right */}
-      <div className={`absolute right-0 top-[280px] transform -translate-y-1/2 z-10 transition-all duration-700 ease-in-out ${
+      {/* Image - Responsive positioning */}
+      <div className={`absolute right-0 top-1/2 sm:top-[60%] lg:top-[280px] transform -translate-y-1/2 z-10 transition-all duration-700 ease-in-out ${
         isTransitioning ? 'translate-x-8 opacity-0 scale-90' : 'translate-x-0 opacity-100 scale-100'
       }`}>
         <img 
           src={slides[currentSlide].image}
           alt={slides[currentSlide].imageAlt}
-          className="w-[370px] h-auto" 
+          className="w-[200px] sm:w-[250px] md:w-[300px] lg:w-[370px] h-auto" 
         />
       </div>
 
       {/* Bottom Section */}
-      <div className="z-10">
+      <div className="z-10 mt-auto">
         {/* Navigation Dots */}
-        <div className="flex space-x-2 mb-6">
+        <div className="flex space-x-1 sm:space-x-2 mb-4 sm:mb-6">
           {slides.map((_, index) => (
             <div 
               key={index}
-              className={`w-6 h-3 rounded-md transition-all duration-500 transform ${
+              className={`w-4 h-2 sm:w-6 sm:h-3 rounded-md transition-all duration-500 transform ${
                 index === currentSlide 
                   ? 'bg-white scale-110' 
                   : 'bg-white/50 scale-100'
@@ -126,7 +125,7 @@ const RegisterHero = () => {
 
         {/* Login Button and Navigation Card */}
         <div 
-          className="p-3 rounded-2xl"
+          className="p-2 sm:p-3 rounded-xl sm:rounded-2xl"
           style={{ 
             background: '#101841', 
             borderRadius: 20, 
@@ -134,32 +133,32 @@ const RegisterHero = () => {
           }}
         >
           {/* Login Button and Navigation */}
-          <div className="flex items-center justify-between mb-10">
-            <button className="bg-transparent text-white px-8 py-2 rounded-full border border-white/30 hover:bg-white/30 transition-colors text-md font-medium">
+          <div className="flex items-center justify-between mb-6 sm:mb-10">
+            <button className="bg-transparent text-white px-4 sm:px-6 lg:px-8 py-1.5 sm:py-2 rounded-full border border-white/30 hover:bg-white/30 transition-colors text-xs sm:text-sm lg:text-md font-medium">
               Login
             </button>
-            <div className="flex space-x-3">
+            <div className="flex space-x-2 sm:space-x-3">
               <button 
                 onClick={prevSlide}
-                className="w-12 h-12 bg-transparent rounded-full flex items-center justify-center border border-white/30 hover:bg-white/30 hover:scale-110 transition-all duration-300 relative"
+                className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 bg-transparent rounded-full flex items-center justify-center border border-white/30 hover:bg-white/30 hover:scale-110 transition-all duration-300 relative"
               >
-                <img src="/src/assets/svg/Ellipse 23.svg" alt="Circle" className="absolute w-12 h-12" />
-                <img src="/src/assets/svg/back.svg" alt="Back" className="w-6 h-6 relative z-10" />
+                <img src="/src/assets/svg/Ellipse 23.svg" alt="Circle" className="absolute w-full h-full" />
+                <img src="/src/assets/svg/back.svg" alt="Back" className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 relative z-10" />
               </button>
               <button 
                 onClick={nextSlide}
-                className="w-12 h-12 bg-transparent rounded-full flex items-center justify-center border border-white/30 hover:bg-white/30 hover:scale-110 transition-all duration-300 relative"
+                className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 bg-transparent rounded-full flex items-center justify-center border border-white/30 hover:bg-white/30 hover:scale-110 transition-all duration-300 relative"
               >
-                <img src="/src/assets/svg/Ellipse 23.svg" alt="Circle" className="absolute w-12 h-12" />
-                <img src="/src/assets/svg/next.svg" alt="Next" className="w-6 h-6 relative z-10" />
+                <img src="/src/assets/svg/Ellipse 23.svg" alt="Circle" className="absolute w-full h-full" />
+                <img src="/src/assets/svg/next.svg" alt="Next" className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 relative z-10" />
               </button>
             </div>
           </div>
 
           {/* Bottom Text */}
-          <p className="text-white text-md leading-relaxed font-normal">
-            Semua ini bukan tentang siapa yang <br />
-            paling jago, tapi siapa yang berani <br />
+          <p className="text-white text-xs sm:text-sm lg:text-md leading-relaxed font-normal">
+            Semua ini bukan tentang siapa yang <br className="hidden sm:block" />
+            paling jago, tapi siapa yang berani <br className="hidden sm:block" />
             mulai dan berkolaborasi
           </p>
         </div>
@@ -169,6 +168,7 @@ const RegisterHero = () => {
 };
 
 export default RegisterHero;
+
 
 
 

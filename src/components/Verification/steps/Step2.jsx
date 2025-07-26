@@ -58,14 +58,14 @@ const Step2 = () => {
   ];
 
   return (
-    <div className="space-y-6">
-      <div className="flex justify-between items-end mb-6">
+    <div className="space-y-2 sm:space-y-3">
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-2 sm:mb-3 space-y-2 sm:space-y-0">
         <div className="text-start">
-          <h2 className="text-xl font-bold text-gray-800 mb-1">
+          <h2 className="text-base sm:text-lg font-bold text-gray-800 mb-1">
             Terimakasih sudah <br/> melakukan <span className="text-blue-600">verifikasi!</span>
           </h2>
-          <p className="text-gray-600 text-xs">
-            Sebelum masuk kedalam menu website, Kami ingin <br/> melakukan survey dahulu kepada Kamu. Bentar aja :)
+          <p className="text-gray-600 text-xs sm:text-sm">
+            Sebelum masuk kedalam menu website, Kami ingin <br className="hidden sm:block" /> melakukan survey dahulu kepada Kamu. Bentar aja :)
           </p>
         </div>
         
@@ -73,26 +73,26 @@ const Step2 = () => {
           onClick={handleNext}
           disabled={!answers.question1 || !answers.question2 || !answers.question3}
           style={{ background: '#5370FF' }}
-          className="text-white font-semibold px-4 py-2 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+          className="text-white font-semibold px-3 sm:px-4 py-1 sm:py-1.5 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-xs sm:text-sm w-full sm:w-auto"
         >
           Next Step
         </button>
       </div>
 
-      <div className="grid grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-3">
         {questions.map((question) => (
-          <div key={question.id} className="bg-white border border-gray-200 rounded-xl p-4 shadow-sm">
-            <div className="text-start mb-4">
-              <h3 className="font-bold text-gray-800 text-md">{question.title}</h3>
-              <p className="text-xs text-gray-600 mt-1">{question.subtitle}</p>
+          <div key={question.id} className="bg-white border border-gray-200 rounded-lg p-2 sm:p-3 shadow-sm">
+            <div className="text-start mb-2 sm:mb-3">
+              <h3 className="font-bold text-gray-800 text-xs sm:text-sm">{question.title}</h3>
+              <p className="text-xs text-gray-600 mt-0.5">{question.subtitle}</p>
             </div>
             
-            <div className="space-y-3">
+            <div className="space-y-1 sm:space-y-2">
               {question.options.map((option, index) => (
                 <button
                   key={index}
                   onClick={() => handleOptionSelect(question.id, option)}
-                  className="w-full px-3 py-2 text-xs rounded-lg font-medium transition-colors text-white"
+                  className="w-full px-2 py-1 sm:py-1.5 text-xs rounded-md font-medium transition-colors text-white"
                   style={{ 
                     background: answers[question.id] === option ? '#2C42B5' : '#5370FF'
                   }}
@@ -109,5 +109,7 @@ const Step2 = () => {
 };
 
 export default Step2;
+
+
 
 

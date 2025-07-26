@@ -1,7 +1,7 @@
 import React from 'react';
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import Header from '../components/Verification/Header';
-import Footer from '../components/Verification/Bottom';
+import Bottom from '../components/Verification/Bottom';
 import Card from '../components/Verification/Card';
 import Step1 from '../components/Verification/steps/Step1';
 import Step2 from '../components/Verification/steps/Step2';
@@ -18,22 +18,27 @@ const VerificationPage = () => {
   };
 
   return (
-    <div className="min-h-screen relative">
+    <div className="min-h-screen flex flex-col relative overflow-x-hidden">
       <Header />
-      <Footer currentStep={getCurrentStep()} />
-      <Card>
-        <Routes>
-          <Route path="/" element={<Navigate to="step-1" replace />} />
-          <Route path="step-1" element={<Step1 />} />
-          <Route path="step-2" element={<Step2 />} />
-          <Route path="step-3" element={<Step3 />} />
-        </Routes>
-      </Card>
+      <div className="flex-1 relative">
+        <Bottom currentStep={getCurrentStep()} />
+        <Card>
+          <Routes>
+            <Route path="/" element={<Navigate to="step-1" replace />} />
+            <Route path="step-1" element={<Step1 />} />
+            <Route path="step-2" element={<Step2 />} />
+            <Route path="step-3" element={<Step3 />} />
+          </Routes>
+        </Card>
+      </div>
     </div>
   );
 };
 
 export default VerificationPage;
+
+
+
 
 
 
